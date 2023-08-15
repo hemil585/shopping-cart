@@ -8,6 +8,8 @@ import {
   AiOutlineMinus,
 } from "react-icons/ai";
 import SimpleImageSlider from "react-simple-image-slider";
+import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 import {
   addProductToCart,
   removeProductFromCart,
@@ -39,23 +41,28 @@ const ProductDetails = () => {
       </Link>
       <div className="product-details">
         <div className="image-container">
-          <img
-            src={selectedProduct.thumbnail}
-            alt={"product image"}
-          />
+          <img src={selectedProduct.thumbnail} alt={"product image"} />
         </div>
         <div className="content-container">
           <div className="slideshow-container">
-            <SimpleImageSlider
-              width={300}
+            {/* <SimpleImageSlider
+              width={400}
               height={200}
               images={selectedProduct.images}
               showNavs={true}
               showBullets={true}
               autoPlay={true}
               autoPlayDelay={3}
-            />
-          </div>
+            /> */}
+            <Fade>
+              {selectedProduct.images.map((image,index) => (
+                <div className="each-fade" key={index}>
+                  <img src={image} alt="image" />
+                </div>
+              ))}
+            </Fade>
+              <p className="product-price">${selectedProduct.price}</p>
+          </div>  
           <div className="content">
             <div className="product-count-container">
               <AiOutlineMinus

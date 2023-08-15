@@ -9,6 +9,7 @@
 
 a{
     text-decoration: none;
+    color: rgb(73, 25, 49);
 }
 
 .navbar ul li{
@@ -26,5 +27,15 @@ a{
 }
 
 .right-side{
+    position: relative;
     padding-right: 4rem;
+}
+
+.cart-logo-products-count{
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: red;
+    left: 3rem;
+    top: 5px;
 }
